@@ -1,0 +1,81 @@
+# What’s Your Mood Today? Create and Deploy a Mood Board Realm
+
+Welcome Gnomes!
+
+This beginner-friendly tutorial guides you through writing and deploying a realm smart contract on gno.land using Gno Playground and Gno Studio Connect. We’ll create "GnoMood," an updatable mood board realm to share your current state (pun intended).
+
+**Prerequisites**
+* Install the [Adena Wallet](https://www.adena.app/) to deploy your realm.
+* Access the [Gno Playground](https://play.gno.land/).
+* Access [Gno Studio Connect](https://gno.studio/connect).
+* Basic knowledge of Go programming language.
+
+### **Step-by-Step Guide**
+
+**Step 1: Set Up Your Project in the Gno Playground**
+The Gno Playground is a web-based editor and testing environment for Gno code, enabling you to write, test, share, and deploy your code.
+
+In gno.land, .gno files define packages necessary for creating contracts and realms. Start by adding a new file named mood.gno and deleting the package.gno file. Then, add your package name to the file. For example:
+
+
+```
+package main
+
+var myMood = "building my first tutorial"
+```
+**Step 2: Implement the Render and Change Functions**
+
+In Gno, public functions (callable on the blockchain) are defined with an uppercase letter. You will implement two functions for this project: Render and ChangeMyMood.
+
+The Render function displays your mood (myMood) on-chain:
+
+
+```
+func Render(path string) string {
+    return "My mood is " + myMood
+} 
+```
+
+
+
+
+Next, add the function to modify your mood after deploying your package. The ChangeMyMood function must be public:
+
+
+```
+func ChangeMyMood(myNewMood string) string {
+    myMood = myNewMood
+    return "Successfully changed the mood"
+}
+```
+
+**Step 3: Deploy Your Realm**
+Now, deploy your package on the gno.land blockchain. Ensure you have the Adena Wallet installed, and testing tokens will be transferred to your wallet through the playground.
+
+1. On the right-hand menu bar, select the network from the drop-down menu. Choose from several options: Test3, Portal Loop, or Local. For this tutorial, select Portal Loop, the rolling testnet.
+2. Click 'Deploy' in Gno Playground. In the box, you will see 'r' for realm and following namespace and name. Your 'namespace' can be anything you want, in this case I am using my name. The 'name'field needs to be your package name, in may case 'mood.'
+![mood code 1](https://hackmd.io/_uploads/r1wM2uCPA.png)
+
+4. Complete the Adena Wallet transaction to deploy your realm on the blockchain. Note that blockchain transactions incur gas fees.
+
+Upon successful deployment, you will see a confirmation message and a link to Gno Studio Connect.
+
+
+
+**Step 4: Use Gno Studio Connect**
+
+Gno Studio Connect is a tool that allows you to interact with smart contract realms in gno.land. You can call functions and interact with them directly in the application. 
+
+1. Click the Gno Studio link upon deployment to access your realm interaction space.You will find the functions Render and ChangeMyMood listed.
+2. Click 'Render on Gno.land' to view your mood displayed on your realm page. This will show the initial mood you set.
+
+
+**Step 5: Update Your Mood**
+
+1. In Gno Studio Connect, click the ChangeMyMood function and enter your new mood in the 'NewMood' field.
+2. Click 'Call' to execute another Adena transaction.
+3. Refresh your Gno.land mood realm page to see your updated mood displayed.
+
+**Conclusion**
+Congratulations! You have successfully created and deployed a Mood Board realm using Gno Playground and Gno Studio Connect. Now you can display and update your mood on the blockchain anytime you want!
+
